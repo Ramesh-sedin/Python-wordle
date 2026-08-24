@@ -1,0 +1,32 @@
+[
+    {
+        "won": true,
+        "attempts": 2,
+        "word": "chair"
+    },
+    {
+        "won": true,
+        "attempts": 2,
+        "word": "hotel"
+    },
+    {
+        "won": true,
+        "attempts": 3,
+        "word": "guava"
+    },
+    {
+        "won": false,
+        "attempts": 6,
+        "word": "light"
+    },
+    {
+        "won": false,
+        "attempts": 6,
+        "word": "phone"
+    },
+    {
+        "won": true,
+        "attempts": 5,
+        "word": "happy"
+    }
+]
