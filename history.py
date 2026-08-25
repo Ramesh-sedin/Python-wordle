@@ -2,22 +2,23 @@ import json
 
 
 class GameHistory:
-    def __init__(self, filename="history.json"):
+    def __init__(self, filename="history.jsonl"):
         self.filename = filename
         self.games = []
         self.load()
-
+            
     def load(self):
         try:
             with open(self.filename, "r") as file:
-                self.games = json.load(file)
+                self.games = [json.loads(line) for line in file]
         except FileNotFoundError:
             self.games = []
-            self.save()
 
-    def save(self):
-        with open(self.filename, "w") as file:
-            json.dump(self.games, file, indent=4)
+    
+    def save(self, game):
+        with open(self.filename, "a") as file:
+            json.dump(game, file)
+            file.write("\n")
 
     def add_game(self, won, attempts, word):
         game = {
@@ -26,7 +27,7 @@ class GameHistory:
             "word": word
         }
         self.games.append(game)
-        self.save()
+        self.save(game)
 
     @property
     def total_games(self):
